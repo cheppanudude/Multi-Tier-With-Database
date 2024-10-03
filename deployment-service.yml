@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bloggingapp-deployment
+  namespace: webapps # Add this line to specify the namespace
 spec:
   selector:
     matchLabels:
@@ -24,12 +25,3 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bloggingapp-ssvc
-spec:
-  selector:
-    app: bloggingapp
-  ports:
-    - protocol: "TCP"
-      port: 80
-      targetPort: 8080 
-  type: LoadBalancer
